@@ -34,6 +34,9 @@ app.use('/', (request, response) => {
       if (!response.headersSent) { response.sendStatus(400) }
     })
 })
+app.get('/help', (request, response) => {
+  response.send("Hello how may i help you")
+})
 
 if (!process.env.REQUEST_TOKEN) {
   console.log('ERROR: process.env.REQUEST_TOKEN variable in src/config.js file is empty ! You must fill this field with the request_token of your bot before launching your bot locally')
