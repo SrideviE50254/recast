@@ -16,35 +16,37 @@ const bodyParser = require('body-parser')
 
 // Load configuration
 require('./config')
-const bot = require('./bot')
+    //const bot = require('./bot')
 
 // Start Express server
 const app = express()
 app.set('port', process.env.PORT || 5000)
 app.use(bodyParser.json())
 
-// Handle / route
-app.use('/', (request, response) => {
-  bot.reply(request, response)
-    .then(success => {
-      console.log(success)
-      if (!response.headersSent) { response.status(200) }
-    }).catch(error => {
-      console.log('Error in your bot:', error)
-      if (!response.headersSent) { response.sendStatus(400) }
+app.post('/CreateSOW', (req, res) => {
+    console.log(req.body.conversation.memory.MatNo.value)
+    let materialNo = req.body.conversation.memory.MatNo.value.toString().toUpperCase();
+    let qty = req.body.conversation.memory.Qty.value;
+    res.send({
+        replies: [{
+            type: 'text',
+            content: 'Created Order for Material '+materialNo + " with Qty "+ qty ,
+    }],
+        conversation: {
+            memory: {
+                key: 'value'
+            }
+        }
     })
-})
-app.get('/help', (request, response) => {
-  response.send("Hello how may i help you")
 })
 
 if (!process.env.REQUEST_TOKEN) {
-  console.log('ERROR: process.env.REQUEST_TOKEN variable in src/config.js file is empty ! You must fill this field with the request_token of your bot before launching your bot locally')
+    console.log('ERROR: process.env.REQUEST_TOKEN variable in src/config.js file is empty ! You must fill this field with the request_token of your bot before launching your bot locally')
 
-  process.exit(0)
+    process.exit(0)
 } else {
-  // Run Express server, on right port
-  app.listen(app.get('port'), () => {
-    console.log('Our bot is running on port', app.get('port'))
-  })
+    // Run Express server, on right port
+    app.listen(app.get('port'), () => {
+        console.log('Our bot is running on port', app.get('port'))
+    })
 }
