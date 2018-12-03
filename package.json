@@ -1,44 +1,32 @@
 {
-  "name": "Recast-ai-starter-kit",
-  "version": "1.0.0",
-  "description": "A bot built with Recast.AI",
-  "main": "server.js",
-  "scripts": {
-    "start": "nodemon src/server.js",
-    "prod": "node src/server.js",
-    "lint": "eslint src/"
+  "name": "node-js-getting-started",
+  "version": "0.3.0",
+  "description": "A sample Node.js app using Express 4",
+  "engines": {
+    "node": "10.x"
   },
-  "author": "Recast",
-  "license": "ISC",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:RecastAI/starter-NodeJS.git"
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "node test.js"
   },
   "dependencies": {
+    "ejs": "^2.5.6",
     "body-parser": "^1.15.2",
-    "express": "^4.14.0",
-    "recastai": "^3.7.0"
+    "express": "^4.15.2"
   },
   "devDependencies": {
-    "eslint": "^3.2.0",
-    "eslint-config-zavatta": "^4.2.0",
-    "eslint-plugin-import": "^1.6.1",
-    "nodemon": "^1.11.0"
+    "request": "^2.81.0",
+    "tape": "^4.7.0"
   },
-  "babel": {
-    "presets": [
-      "es2015",
-      "stage-0"
-    ],
-    "plugins": [
-      "transform-runtime"
-    ]
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/heroku/node-js-getting-started"
   },
-  "eslintConfig": {
-    "extends": "zavatta",
-    "rules": {
-      "no-console": 0,
-      "callback-return": 0
-    }
-  }
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
