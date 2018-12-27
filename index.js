@@ -2,8 +2,7 @@ const express = require('express')
 const path = require('path')
 const bodyParser = require('body-parser')
 const PORT = process.env.PORT || 5000
-var request = require('request');
-const requestify = require('requestify');
+var Request = require('request');
 express().use(bodyParser.json()).get('/', (req, res) => {
     res.send({
         replies: [{
@@ -30,32 +29,16 @@ express().use(bodyParser.json()).get('/', (req, res) => {
     var data = {
         "order": 2823
     };
-    Request.post({"url": "https://j4ia5972ceee.hana.ondemand.com/ChatBotProject/services/sample.xsjs"
-    ,formData: data}, (error, response, body) => {
+    Request.post({
+        headers: {
+            'content-type': 'application/json'
+        }, 
+        url: 'https://j4ia5972ceee.hana.ondemand.com/ChatBotProject/services/sample.xsjs', 
+        body: JSON.stringify(data)
+    }, function (error, response, body) {
         if (error) {
             res.send(error)
         }
-        res.send(response)
+        res.send(body)
     });
-    /*requestify.post('https://j4ia5972ceee.hana.ondemand.com/ChatBotProject/services/sample.xsjs',data)
-	.then(function(response) {
-        res.send(response)
-	}, function(error)   {
-		  res.send(error)
-			
-		}
-	);*/
-}).post('/orderStatus', function(req, res) {
-    // Call the backend service 
- var data = {
-			"order": 2823
-			};
-	requestify.post('https://j4ia5972ceee.hana.ondemand.com/ChatBotProject/services/sample.xsjs',data)
-	.then(function(response) {
-        res.send(response)
-	}, function(error)   {
-		  res.send(error)	
-			
-		}
-	);
 }).listen(PORT, () => console.log(`Listening on ${ PORT }`))
