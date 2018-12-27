@@ -8,7 +8,7 @@ express()
         res.send({
             replies: [{
                 type: 'text',
-                content: 'Welcome to Itelli Bot'
+                content: 'Welcome to Itelli Botttt'
     }]
         })
     })
