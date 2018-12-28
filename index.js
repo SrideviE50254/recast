@@ -28,23 +28,7 @@ express().use(bodyParser.json()).get('/', (req, res) => {
     var data = {
         "order": 2823
     };
-    /*var reply = [{
-			type: 'text',
-			content: "From js"
-		}];
-    res.send(reply);*/
-    
-    res.send({
-    replies: [{
-      type: 'text',
-      content: 'Roger that',
-    }],
-    conversation: {
-      memory: { key: 'value' }
-    }
-  })
-
-  /*  Request.post({
+    Request.post({
         headers: {
             'content-type': 'application/json'
         }, 
@@ -54,25 +38,6 @@ express().use(bodyParser.json()).get('/', (req, res) => {
         if (error) {
             res.send(error)
         }
-        //res.send(body);
-      /*  res.send({
-        replies: [{
-            type: 'text'
-            , content: 'Order Status for Given Order is' +body
-    }], conversation: {
-            memory: {
-                key: 'value'
-            }
-        }
-    })*/
-       /* res.send({
-    replies: [{
-      type: 'text',
-      content: response,
-    }],
-    conversation: {
-      memory: { key: 'value' }
-    }
-  })*/
-    });*/
+        res.send(body)
+    });
 }).listen(PORT, () => console.log(`Listening on ${ PORT }`))
