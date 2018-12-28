@@ -44,7 +44,7 @@ express().use(bodyParser.json()).get('/', (req, res) => {
     }
   })
 
-    Request.post({
+  /*  Request.post({
         headers: {
             'content-type': 'application/json'
         }, 
@@ -74,5 +74,5 @@ express().use(bodyParser.json()).get('/', (req, res) => {
       memory: { key: 'value' }
     }
   })*/
-    });
+    });*/
 }).listen(PORT, () => console.log(`Listening on ${ PORT }`))
