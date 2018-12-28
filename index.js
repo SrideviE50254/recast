@@ -34,7 +34,7 @@ express().use(bodyParser.json()).get('/', (req, res) => {
 		}];
     res.send(reply);*/
     
-   /* res.send({
+    res.send({
     replies: [{
       type: 'text',
       content: 'Roger that',
@@ -42,7 +42,7 @@ express().use(bodyParser.json()).get('/', (req, res) => {
     conversation: {
       memory: { key: 'value' }
     }
-  })*/
+  })
 
     Request.post({
         headers: {
@@ -65,7 +65,7 @@ express().use(bodyParser.json()).get('/', (req, res) => {
             }
         }
     })*/
-        res.send({
+       /* res.send({
     replies: [{
       type: 'text',
       content: response,
@@ -73,6 +73,6 @@ express().use(bodyParser.json()).get('/', (req, res) => {
     conversation: {
       memory: { key: 'value' }
     }
-  })
+  })*/
     });
 }).listen(PORT, () => console.log(`Listening on ${ PORT }`))
