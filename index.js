@@ -37,8 +37,8 @@ express().use(bodyParser.json()).get('/', (req, res) => {
     }, function (error, response, body) {
         if (error) {
             res.send(error)
-        }
-        //res.send(body)
+        }else{
+               //res.send(body)
         res.send({
     replies: [{
       type: 'text',
@@ -48,5 +48,7 @@ express().use(bodyParser.json()).get('/', (req, res) => {
       memory: { key: 'value' }
     }
   })
+        }
+     
     });
 }).listen(PORT, () => console.log(`Listening on ${ PORT }`))
