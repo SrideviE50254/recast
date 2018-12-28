@@ -38,6 +38,15 @@ express().use(bodyParser.json()).get('/', (req, res) => {
         if (error) {
             res.send(error)
         }
-        res.send(body)
+        //res.send(body)
+        res.send({
+    replies: [{
+      type: 'text',
+      content: response,
+    }],
+    conversation: {
+      memory: { key: 'value' }
+    }
+  })
     });
 }).listen(PORT, () => console.log(`Listening on ${ PORT }`))
