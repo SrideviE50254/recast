@@ -68,7 +68,7 @@ express().use(bodyParser.json()).get('/', (req, res) => {
         res.send({
     replies: [{
       type: 'text',
-      content: body,
+      content: "C",
     }],
     conversation: {
       memory: { key: 'value' }
